@@ -230,32 +230,40 @@
 		    </div>
 		</div>
 		<script>
-		    function Tabs () {
-		        var tabs = $('.tab');
-		        var modules = $('.module');
-		        var pre = modules.eq(0);
-		        var active;
-		        
-		        tabs.change(function () {
-		           if (tabs.eq(0).is(':checked')) {
-		               active = modules.eq(0);
-		               swimodule(pre, active);
-		           } else if (tabs.eq(1).is(':checked')) {
-                       active = modules.eq(1);
-                       swimodule(pre, active);
-                   } else {
-                       active = modules.eq(2);
-                       swimodule(pre, active);
-                   }
-                   pre = active;
-		        });
-		        
-		        var swimodule = function (fadeOut, fadeIn) {
-		            fadeOut.fadeOut(0);
-		            fadeIn.fadeIn(0);
-		        }
-		    };
-		    new Tabs;
+		    $(document).ready(function () {
+		        function Tabs () {
+                    var tabs = $('.tab');
+                    var tab_labs = $('.tab_lab');
+                    var modules = $('.module');
+                    var pre = modules.eq(0);
+                    var active;
+                    
+                    tabs.change(function () {
+                        tabs.each(function (index, ele) {
+                            //ele = this
+                            if ($(ele).is(':checked')) {
+                                active = modules.eq(index);
+                                swimodule(pre, active);
+                            }
+                        });
+                        pre = active;
+                    });
+                    
+                    //当鼠标移动到标签时，自动切换模块
+                    tab_labs.each(function () {
+                        $(this).on('mouseenter',function () {
+                            this.click();
+                        });
+                    });
+                    
+                    var swimodule = function (fadeOut, fadeIn) {
+                        fadeOut.fadeOut(0);
+                        fadeIn.fadeIn(0);
+                    }
+                };
+                new Tabs;
+		    });
+		    
 		</script>
 	</body>
 </html>
