@@ -1,0 +1,23 @@
+{
+  "name": "module_purchase",
+  "version": "1.0.0",
+  "description": "a form of module purchase",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianyingx007/module_purchase.git"
+  },
+  "author": "dianyingx007@163.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dianyingx007/module_purchase/issues"
+  },
+  "homepage": "https://github.com/dianyingx007/module_purchase#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.6",
+    "gulp": "^3.9.1"
+  }
+}
