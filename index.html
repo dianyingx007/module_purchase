@@ -3,10 +3,259 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>module purchase</title>
+		<script src="js/jquery-1.11.1.min.js"></script>
 		<style>
+		    * {
+		        box-sizing: border-box;
+		        margin: 0;
+		        padding: 0;
+		    }
+		    .clearfix:after {
+		        content: '';
+		        display: block;
+		        clear: both;
+		    }
+		    .module_purchase {
+		        width: 100%;
+		        border: 1px solid rgba(0,0,0,.3);
+		    }
+		    
+		    /*tabs*/
+		   .tabs {
+		       width: 170px;
+		       float: left;
+		   }
+		   .tab_row {
+		       background-color: #EEE;
+		       border: 1px solid #AAA;
+		       height: 40px;
+		       line-height: 40px;
+		   }
+		   .tab {
+		       display: none;
+		   }
+		   .tab_lab {
+		       display: inline-block;
+		       width: 170px;
+		       height: 40px;
+		       padding-left: 10px;
+		   }
+		   .tab:checked~.tab_lab {
+		       border-left: 2px solid red;
+		   }
+		   
+		   /*modules*/
+		  .modules {
+		      margin-left: 170px;
+		      border-left: 1px solid #AAA;
+		  }
+		  .module_rows {
+		      max-width: 720px;/*注意与 .module .user_num p 一致*/
+		      margin: 0 auto;
+		  }
+		  .module .user_num{
+		      height: 40px;
+		      line-height: 40px;
+		      border-bottom: 1px solid #AAA;
+		  }
+		  .module .user_num p {
+		      max-width: 720px;
+		      margin: 0 auto;
+		  }
+		  .module .user_num input {
+		      height: 30px;
+		      width: 50px;
+		      line-height: 30px;
+		  }
+		  .module_row p {
+		      line-height: 40px;
+		  }
+		  .module_row .detail_one {
+		      width: 170px;
+		      height: 40px;
+		      line-height: 40px;
+		      float: left;
+		      background-color: #EEE;
+		      border: 1px solid #AAA;
+		      margin-right: 10px;
+		      margin-bottom: 10px;
+		  }
+		  .detail_one input {
+		      display: none;
+		  }
+		  .detail_lab {
+		      display: inline-block;
+		      width: 170px;
+		      height: 40px;
+		      line-height: 40px;
+		      padding-left: 10px;
+		  }
+		  .detail_one input:checked~.detail_lab {
+		      border-left: 2px solid #007FFF;
+		  }
 		</style>
 	</head>
 	<body>
-		<div></div>
+	    <h3>模块选购</h3>
+		<div class="module_purchase clearfix">
+		    <div class="tabs">
+		        <form>
+    	            <div class="tab_row">
+                        <input class="tab" id="module1" type="radio" name="tabs" value="module1" checked/>
+                        <label class="tab_lab" for="module1">专业分组</label>
+                    </div>
+                    <div class="tab_row">
+                        <input class="tab" id="module2" type="radio" name="tabs" value="module2"/>
+                        <label class="tab_lab" for="module2">专业分组</label>
+                    </div>
+                    <div class="tab_row">
+                        <input class="tab" id="module3" type="radio" name="tabs" value="module3"/>
+                        <label class="tab_lab" for="module3">专业分组</label>
+                    </div>
+		        </form>
+		    </div>
+		    <div class="modules">
+		        <div class="module" style="display: block;">
+		            <div class="user_num">
+		                <p>
+		                    <span>专业组用户数</span>
+		                    <input type="number" name="user_num1" id="user_num1" value="1"/>
+		                </p>
+		            </div>
+		            <div class="module_rows">
+		                <div class="module_row">
+                            <p>财务</p>
+                            <div class="clearfix">
+                                <div class="detail_one">
+                                    <input type="checkbox" name="finance" id="finance1" value="finance1" checked/>
+                                    <label class="detail_lab" for="finance1">财务1</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="finance" id="finance2" value="finance2"/>
+                                    <label class="detail_lab" for="finance2">财务2</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="finance" id="finance3" value="finance3"/>
+                                    <label class="detail_lab" for="finance3">财务3</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="finance" id="finance4" value="finance4"/>
+                                    <label class="detail_lab" for="finance4">财务4</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="finance" id="finance5" value="finance5"/>
+                                    <label class="detail_lab" for="finance5">财务5</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module_row">
+                            <p>供应链</p>
+                            <div class="clearfix">
+                                <div class="detail_one">
+                                    <input type="checkbox" name="sc" id="sc1" value="sc1"/>
+                                    <label class="detail_lab" for="sc1">供应链1</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="sc" id="sc2" value="sc2"/>
+                                    <label class="detail_lab" for="sc2">供应链2</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="sc" id="sc3" value="sc3"/>
+                                    <label class="detail_lab" for="sc3">供应链3</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="sc" id="sc4" value="sc4"/>
+                                    <label class="detail_lab" for="sc4">供应链4</label>
+                                </div>
+                            </div>
+                        </div>
+		            </div>
+		        </div>
+		        <div class="module" style="display: none;">
+                    <div class="user_num">
+                        <p>
+                            <span>专业组用户数</span>
+                            <input type="number" name="user_num2" id="user_num2" value="2"/>
+                        </p>
+                    </div>
+                    <div class="module_rows">
+                        <div class="module_row">
+                            <p>电商管理</p>
+                            <div class="clearfix">
+                                <div class="detail_one">
+                                    <input type="checkbox" name="bc" id="bc1" value="bc1"/>
+                                    <label class="detail_lab" for="bc1">电商管理1</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="bc" id="bc2" value="bc2" checked/>
+                                    <label class="detail_lab" for="bc2">电商管理2</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="bc" id="bc3" value="bc3"/>
+                                    <label class="detail_lab" for="bc3">电商管理3</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="bc" id="bc4" value="bc4"/>
+                                    <label class="detail_lab" for="bc4">电商管理4</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="module_row">
+                            <p>经营</p>
+                            <div class="clearfix">
+                                <div class="detail_one">
+                                    <input type="checkbox" name="manage" id="manage1" value="manage1"/>
+                                    <label class="detail_lab" for="manage1">经营1</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="manage" id="manage2" value="manage2"/>
+                                    <label class="detail_lab" for="manage2">经营2</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="manage" id="manage3" value="manage3"/>
+                                    <label class="detail_lab" for="manage3">经营3</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="manage" id="manage4" value="manage4"/>
+                                    <label class="detail_lab" for="manage4">经营4</label>
+                                </div>
+                                <div class="detail_one">
+                                    <input type="checkbox" name="manage" id="manage5" value="manage5"/>
+                                    <label class="detail_lab" for="manage5">经营5</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+		    </div>
+		</div>
+		<script>
+		    function Tabs () {
+		        var tabs = $('.tab');
+		        var modules = $('.module');
+		        var pre = modules.eq(0);
+		        var active;
+		        
+		        tabs.change(function () {
+		           if (tabs.eq(0).is(':checked')) {
+		               active = modules.eq(0);
+		               swimodule(pre, active);
+		           } else if (tabs.eq(1).is(':checked')) {
+                       active = modules.eq(1);
+                       swimodule(pre, active);
+                   } else {
+                       active = modules.eq(2);
+                       swimodule(pre, active);
+                   }
+                   pre = active;
+		        });
+		        
+		        var swimodule = function (fadeOut, fadeIn) {
+		            fadeOut.fadeOut(0);
+		            fadeIn.fadeIn(0);
+		        }
+		    };
+		    new Tabs;
+		</script>
 	</body>
 </html>
